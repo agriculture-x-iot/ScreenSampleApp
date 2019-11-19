@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(new MaterialApp(
+    debugShowCheckedModeBanner: false,  //デバッグリボン非表示
     title: 'Navigation with Routes',
     routes: <String, WidgetBuilder>{
       '/': (_) => new Splash(),
@@ -60,7 +61,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: const Text("ログイン画面"),
+        title: const Text("AGRIMASTERにログイン"),
       ),
       body: new Center(
         child: new Form(
@@ -95,6 +96,16 @@ class _LoginState extends State<Login> {
                     },
                   ),
                 ),
+                const SizedBox(height: 24.0),
+                Center(
+                  child: new RaisedButton(
+                  child: const Text("新規登録"),
+                  onPressed: () {
+                    // 登録画面へ
+                    Navigator.of(context).pushNamed("/home");
+                  },
+                ),
+                )
               ],
             ),
           ),
